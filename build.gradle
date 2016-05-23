@@ -1,12 +1,29 @@
 
 apply plugin: 'java'
+apply plugin: 'groovy'
 
 repositories {
     jcenter()
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+sourceSets {
+    test.groovy.srcDirs = ['src/test/unit']
+}
+
 dependencies {
 
     testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-all:1.9.5'
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
 
+}
+
+tasks.withType(Test) {
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+        exceptionFormat 'full'
+    }
 }
