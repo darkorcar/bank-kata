@@ -10,10 +10,12 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 sourceSets {
-    test.groovy.srcDirs = ['src/test/unit']
+    test.groovy.srcDirs = ['src/test/unit', 'src/test/acceptance']
 }
 
 dependencies {
+
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-all:1.9.5'
