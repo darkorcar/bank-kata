@@ -19,7 +19,7 @@ public class InMemoryTransactionRepository implements TransactionRepository {
 
     @Override
     public List<Transaction> findAll() {
-        return Collections.unmodifiableList(transactions);
+        return List.copyOf(transactions);
     }
 
 }
